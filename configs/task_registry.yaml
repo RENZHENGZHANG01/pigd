@@ -1,0 +1,13 @@
+BG:
+  types:
+  - regression
+  - regression
+  - regression
+  cols:
+  - BG
+  - SA
+  - SC
+  num_classes:
+    BG: 0
+    SA: 0
+    SC: 0
