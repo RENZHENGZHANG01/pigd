@@ -1,0 +1,526 @@
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 568, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 973, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 1016, in _run_stage
+    self.fit_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 201, in run
+    self.advance()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 354, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 134, in run
+    self.on_advance_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 248, in on_advance_end
+    self.val_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/util
+ities.py", line 177, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 122, in run
+    return self.on_run_end()
+           ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 244, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 326, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/ca
+ll.py", line 144, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/diffusion_model.py", line 299, in on_validat
+ion_epoch_end
+    valid_smiles = self.sampling_metrics(samples, all_ys, self.name, self.current_epoch, val_counter=-1, te
+st=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/metrics/molecular_metrics_sampling.py", line
+ 84, in forward
+    unique_smiles, all_smiles, all_metrics, targets_log = compute_molecular_metrics(
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 351, in c
+ompute_molecular_metrics
+    evaluated_res = metrics.evaluate(molecule_list, targets, ensure_connected, active_atoms)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 100, in e
+valuate
+    valid, validity, nc_validity, num_components, all_smiles, covered_atoms = self.compute_relaxed_validity
+(generated, ensure_connected=ensure_connected)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 72, in co
+mpute_relaxed_validity
+    mol_conn, _ = correct_mol(mol, connection=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 224, in c
+orrect_mol
+    flag, _ = check_valency(mol)
+              ^^^^^^^^^^^^^^^^^^
+TypeError: check_valency() missing 1 required positional argument: 'mol'
+./run_graphdit.sh: line 39: unexpected EOF while looking for matching `''
+./run_graphdit.sh: line 44: syntax error: unexpected end of file
+(h100env) $ ./run_graphdit.sh
+------------------------------------------------
+GraphDiT Job Started: Fri Aug  1 08:17:26 PM PDT 2025
+Running on host: sn4622123115
+Working directory: /m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit
+------------------------------------------------
+Python path: /m2_4tdata/xchen5/miniconda3/envs/h100env/bin/python
+Conda env: h100env
+Generate .yaml file for inputs...
+Generated /m2_4tdata/xchen5/Physics-informed-Graph-DiT/configs/task_registry.yaml successfully.
+Starting Python script...
+/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/mini_moses/metrics/utils.py:24: Futu
+reWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use p
+andas.concat instead.
+  _mcf.append(_pains, sort=True)['smarts'].values]
+TC /m2_4tdata/xchen5/Physics-informed-Graph-DiT/data/
+[INFO] Reprocessing dataset TC (force=True)
+100%|████████████████████████████████████████████████████████████████| 1703/1703 [00:00<00:00, 5009.29it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+TC  dataset len 1703 train len 1021 val len 341 test len 341 unlabeled len 0
+processed meta info: ------ TC.csv.gz ------
+len atom_count_list 118
+len atom_name_list 118
+--- Computing intermediate statistics for training for #341 smiles ---
+--- End computing intermediate statistics: using 1.57s ---
+Training new TC model...
+TC performance: 0.01834119803673948
+Training new SA model...
+SA performance: 0.08974412200804172
+Training new SC model...
+SC performance: 0.06814471127303008
+TC /m2_4tdata/xchen5/Physics-informed-Graph-DiT/data/
+[INFO] Reprocessing dataset TC (force=True)
+100%|████████████████████████████████████████████████████████████████| 1703/1703 [00:00<00:00, 3542.66it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [2]
+
+   | Name             | Type                            | Params
+----------------------------------------------------------------------
+0  | train_loss       | TrainLossDiscrete               | 0
+1  | val_nll          | NLL                             | 0
+2  | val_X_kl         | SumExceptBatchKL                | 0
+3  | val_E_kl         | SumExceptBatchKL                | 0
+4  | val_X_logp       | SumExceptBatchMetric            | 0
+5  | val_E_logp       | SumExceptBatchMetric            | 0
+6  | test_nll         | NLL                             | 0
+7  | test_X_kl        | SumExceptBatchKL                | 0
+8  | test_E_kl        | SumExceptBatchKL                | 0
+9  | test_X_logp      | SumExceptBatchMetric            | 0
+10 | test_E_logp      | SumExceptBatchMetric            | 0
+11 | train_metrics    | TrainMolecularMetricsDiscrete   | 0
+12 | sampling_metrics | SamplingMolecularMetrics        | 0
+13 | model            | Denoiser                        | 160 M
+14 | validity_layer   | ValidityHead                    | 443 K
+15 | out_layer        | OutLayer                        | 4.0 M
+16 | noise_schedule   | PredefinedNoiseScheduleDiscrete | 0
+----------------------------------------------------------------------
+160 M     Trainable params
+0         Non-trainable params
+160 M     Total params
+642.327   Total estimated model params size (MB)
+TC  dataset len 1703 train len 1021 val len 341 test len 341 unlabeled len 0
+[2025-08-01 20:18:06,096][diffusion_model][INFO] - Model device: cuda:0
+[2025-08-01 20:18:06,096][diffusion_model][INFO] - validity_layer device: cuda:0
+[2025-08-01 20:18:06,096][diffusion_model][INFO] - out_layer device: cuda:0
+[2025-08-01 20:18:06,096][diffusion_model][INFO] - on fit train iteration: 1
+[2025-08-01 20:18:06,096][diffusion_model][INFO] - Size of the input features Xdim 9, Edim 5, ydim 2
+Error executing job with overrides: ['model.ensure_connected=False', 'dataset.task_name=TC', 'dataset.guida
+nce_target=SA-SC']
+Traceback (most recent call last):
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/main.py", line 147, in <module>
+Starting train epoch 1750/7000...
+Epoch 1750: Val NLL 1820.27 -- Val Atom type KL 900.04 --  Val Edge type KL: 829.85 Val loss: 1820.27    Be
+st :  1460.64
+
+Epoch 1750 finished: X_CE: 0.4978 -- E_CE: 0.0962 Weight: 29.4349 -- Time taken 1.0s
+Epoch 1750: {'C_CE': 0.3655, 'N_CE': 0.1007, 'O_CE': 0.2234, 'F_CE': 0.034, 'S_CE': 0.0209, 'Cl_CE': 0.0097
+, 'Br_CE': 0.0015, 'I_CE': 0.0009, '*_CE': 0.1246} -- {'NoBondCE': 0.0663, 'SingleCE': 0.0534, 'DoubleCE':
+0.0106, 'TripleCE': 0.0005}
+[val]torch summary before 2238563840
+[val] reserved: 35192307712
+[val]torch summary after 2238978560
+[val] reserved: 4527751168
+Computing sampling metrics  ...
+    main()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/main.py", line 94, in
+decorated_main
+    _run_hydra(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 394, in _run_hydra
+    _run_app(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 457, in _run_app
+    run_and_report(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 223, in run_and_report
+    raise ex
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/hydra.py", l
+ine 132, in run
+    _ = ret.return_value
+        ^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/core/utils.py", line 2
+60, in return_value
+    raise self._return_value
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/core/utils.py", line 1
+86, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/main.py", line 139, in main
+    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.general.resume)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 529, in fit
+    call._call_and_handle_interrupt(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/ca
+ll.py", line 42, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 568, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 973, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 1016, in _run_stage
+    self.fit_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 201, in run
+    self.advance()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 354, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 134, in run
+    self.on_advance_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 248, in on_advance_end
+    self.val_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/util
+ities.py", line 177, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 122, in run
+    return self.on_run_end()
+           ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 244, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 326, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/ca
+ll.py", line 144, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/diffusion_model.py", line 299, in on_validat
+ion_epoch_end
+    valid_smiles = self.sampling_metrics(samples, all_ys, self.name, self.current_epoch, val_counter=-1, te
+st=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/metrics/molecular_metrics_sampling.py", line
+ 84, in forward
+    unique_smiles, all_smiles, all_metrics, targets_log = compute_molecular_metrics(
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 351, in c
+ompute_molecular_metrics
+    evaluated_res = metrics.evaluate(molecule_list, targets, ensure_connected, active_atoms)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 100, in e
+valuate
+    valid, validity, nc_validity, num_components, all_smiles, covered_atoms = self.compute_relaxed_validity
+(generated, ensure_connected=ensure_connected)
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 72, in co
+mpute_relaxed_validity
+    mol_conn, _ = correct_mol(mol, connection=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 224, in c
+orrect_mol
+    flag, _ = check_valency(mol)
+              ^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 212, in c
+heck_valency
+    Chem.SanitizeMol(mol, sanitizeOps=Chem.SanitizeFlags.SANITIZE_PROPERTIES)
+Boost.Python.ArgumentError: Python argument types in
+    rdkit.Chem.rdmolops.SanitizeMol(NoneType)
+did not match C++ signature:
+    SanitizeMol(RDKit::ROMol {lvalue} mol, unsigned long sanitizeOps=rdkit.Chem.rdmolops.SanitizeFlags.SANI
+TIZE_ALL, bool catchErrors=False)
+------------------------------------------------
+GraphDiT Job Finished: Fri Aug  1 09:40:42 PM PDT 2025
+------------------------------------------------
+(h100env) $ tmux capture-pane -pS -500 > last_500_lines.txt
+(h100env) $ ./run_graphdit
+-sh: 15: ./run_graphdit: not found
+(h100env) $ ls
+analysis                           graphdit_tmux_20250731_182540.log  graphdit_tmux_20250801_132039.log
+datasets                           graphdit_tmux_20250731_182820.log  graphdit_tmux_20250801_132220.log
+diffusion                          graphdit_tmux_20250731_184129.log  graphdit_tmux_20250801_132453.log
+diffusion_model.py                 graphdit_tmux_20250731_184512.log  graphdit_tmux_20250801_133202.log
+generate_registry.py               graphdit_tmux_20250731_185040.log  graphdit_tmux_20250801_133759.log
+graphdit_tmux_20250728_003130.log  graphdit_tmux_20250731_185528.log  graphdit_tmux_20250801_134919.log
+graphdit_tmux_20250728_121844.log  graphdit_tmux_20250731_185850.log  graphdit_tmux_20250801_154604.log
+graphdit_tmux_20250728_140139.log  graphdit_tmux_20250731_190247.log  graphdit_tmux_20250801_172300.log
+graphdit_tmux_20250728_162157.log  graphdit_tmux_20250731_190911.log  graphdit_tmux_20250801_185411.log
+graphdit_tmux_20250728_171852.log  graphdit_tmux_20250731_191234.log  graphdit_tmux_20250801_191719.log
+graphdit_tmux_20250728_183351.log  graphdit_tmux_20250731_191522.log  graphdit_tmux_20250801_201726.log
+graphdit_tmux_20250731_165834.log  graphdit_tmux_20250731_191913.log  __init__.py
+graphdit_tmux_20250731_170029.log  graphdit_tmux_20250731_192308.log  last_500_lines.txt
+graphdit_tmux_20250731_171121.log  graphdit_tmux_20250731_192921.log  main.py
+graphdit_tmux_20250731_173350.log  graphdit_tmux_20250731_193307.log  metrics
+graphdit_tmux_20250731_173512.log  graphdit_tmux_20250731_201125.log  models
+graphdit_tmux_20250731_173651.log  graphdit_tmux_20250731_204033.log  outputs
+graphdit_tmux_20250731_173840.log  graphdit_tmux_20250731_205629.log  __pycache__
+graphdit_tmux_20250731_174137.log  graphdit_tmux_20250731_210142.log  run_graphdit.sh
+graphdit_tmux_20250731_181402.log  graphdit_tmux_20250731_210530.log  tb_logs
+graphdit_tmux_20250731_182140.log  graphdit_tmux_20250801_130334.log  utils.py
+graphdit_tmux_20250731_182250.log  graphdit_tmux_20250801_131821.log
+(h100env) $ ./run_graphdit.sh
+------------------------------------------------
+GraphDiT Job Started: Fri Aug  1 10:10:53 PM PDT 2025
+Running on host: sn4622123115
+Working directory: /m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit
+------------------------------------------------
+Python path: /m2_4tdata/xchen5/miniconda3/envs/h100env/bin/python
+Conda env: h100env
+Generate .yaml file for inputs...
+Generated /m2_4tdata/xchen5/Physics-informed-Graph-DiT/configs/task_registry.yaml successfully.
+Starting Python script...
+/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/mini_moses/metrics/utils.py:24: Futu
+reWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use p
+andas.concat instead.
+  _mcf.append(_pains, sort=True)['smarts'].values]
+  0%|                                                                             | 0/1703 [00:00<?, ?it/s]
+TC /m2_4tdata/xchen5/Physics-informed-Graph-DiT/data/
+[INFO] Reprocessing dataset TC (force=True)
+100%|████████████████████████████████████████████████████████████████| 1703/1703 [00:00<00:00, 5028.37it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  0%|                                                                             | 0/1703 [00:00<?, ?it/s]
+TC  dataset len 1703 train len 1021 val len 341 test len 341 unlabeled len 0
+processed meta info: ------ TC.csv.gz ------
+len atom_count_list 118
+len atom_name_list 118
+--- Computing intermediate statistics for training for #341 smiles ---
+--- End computing intermediate statistics: using 1.13s ---
+Training new TC model...
+TC performance: 0.01834119803673948
+Training new SA model...
+SA performance: 0.08974412200804172
+Training new SC model...
+SC performance: 0.06814471127303008
+TC /m2_4tdata/xchen5/Physics-informed-Graph-DiT/data/
+[INFO] Reprocessing dataset TC (force=True)
+100%|████████████████████████████████████████████████████████████████| 1703/1703 [00:00<00:00, 3610.19it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [2]
+
+   | Name             | Type                            | Params
+----------------------------------------------------------------------
+0  | train_loss       | TrainLossDiscrete               | 0
+1  | val_nll          | NLL                             | 0
+2  | val_X_kl         | SumExceptBatchKL                | 0
+3  | val_E_kl         | SumExceptBatchKL                | 0
+4  | val_X_logp       | SumExceptBatchMetric            | 0
+5  | val_E_logp       | SumExceptBatchMetric            | 0
+6  | test_nll         | NLL                             | 0
+7  | test_X_kl        | SumExceptBatchKL                | 0
+8  | test_E_kl        | SumExceptBatchKL                | 0
+9  | test_X_logp      | SumExceptBatchMetric            | 0
+10 | test_E_logp      | SumExceptBatchMetric            | 0
+11 | train_metrics    | TrainMolecularMetricsDiscrete   | 0
+12 | sampling_metrics | SamplingMolecularMetrics        | 0
+13 | model            | Denoiser                        | 160 M
+14 | validity_layer   | ValidityHead                    | 443 K
+15 | out_layer        | OutLayer                        | 4.0 M
+16 | noise_schedule   | PredefinedNoiseScheduleDiscrete | 0
+----------------------------------------------------------------------
+160 M     Trainable params
+0         Non-trainable params
+160 M     Total params
+642.327   Total estimated model params size (MB)
+TC  dataset len 1703 train len 1021 val len 341 test len 341 unlabeled len 0
+[2025-08-01 22:11:32,387][diffusion_model][INFO] - Model device: cuda:0
+[2025-08-01 22:11:32,388][diffusion_model][INFO] - validity_layer device: cuda:0
+[2025-08-01 22:11:32,388][diffusion_model][INFO] - out_layer device: cuda:0
+[2025-08-01 22:11:32,388][diffusion_model][INFO] - on fit train iteration: 1
+[2025-08-01 22:11:32,388][diffusion_model][INFO] - Size of the input features Xdim 9, Edim 5, ydim 2
+Error executing job with overrides: ['model.ensure_connected=False', 'dataset.task_name=TC', 'dataset.guida
+nce_target=SA-SC']
+Traceback (most recent call last):
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/main.py", line 147, in <module>
+Starting train epoch 1750/7000...
+Epoch 1750: Val NLL 1815.05 -- Val Atom type KL 915.66 --  Val Edge type KL: 812.85 Val loss: 1815.05    Be
+st :  1458.96
+
+Epoch 1750 finished: X_CE: 0.4983 -- E_CE: 0.0961 Weight: 29.3944 -- Time taken 0.9s
+Epoch 1750: {'C_CE': 0.3667, 'N_CE': 0.1031, 'O_CE': 0.2192, 'F_CE': 0.0376, 'S_CE': 0.0224, 'Cl_CE': 0.010
+6, 'Br_CE': 0.0012, 'I_CE': 0.0006, '*_CE': 0.1208} -- {'NoBondCE': 0.0663, 'SingleCE': 0.0521, 'DoubleCE':
+ 0.0105, 'TripleCE': 0.0005}
+[val]torch summary before 2236868608
+[val] reserved: 35192307712
+[val]torch summary after 2238297600
+[val] reserved: 5207228416
+Computing sampling metrics  ...
+Validity over 512 molecules: 35.94% (w/o correction: 44.53%), cover 9 (100.00%) atoms: {'*', 'C', 'S', 'Br'
+, 'Cl', 'N', 'I', 'F', 'O'}
+Failure types/ largest molecule: 284 valency failure after connection: 0 connection failure: 385
+Number of connected components of 512 molecules: min:1.00 mean:2.91 max:14.00
+    main()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/main.py", line 94, in
+decorated_main
+    _run_hydra(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 394, in _run_hydra
+    _run_app(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 457, in _run_app
+    run_and_report(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 223, in run_and_report
+    raise ex
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/utils.py", l
+ine 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/_internal/hydra.py", l
+ine 132, in run
+    _ = ret.return_value
+        ^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/core/utils.py", line 2
+60, in return_value
+    raise self._return_value
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/hydra/core/utils.py", line 1
+86, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/main.py", line 139, in main
+    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.general.resume)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 529, in fit
+    call._call_and_handle_interrupt(
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/ca
+ll.py", line 42, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 568, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 973, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/tr
+ainer.py", line 1016, in _run_stage
+    self.fit_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 201, in run
+    self.advance()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/fit_
+loop.py", line 354, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 134, in run
+    self.on_advance_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/trai
+ning_epoch_loop.py", line 248, in on_advance_end
+    self.val_loop.run()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/util
+ities.py", line 177, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 122, in run
+    return self.on_run_end()
+           ^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 244, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/loops/eval
+uation_loop.py", line 326, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/pytorch_lightning/trainer/ca
+ll.py", line 144, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/diffusion_model.py", line 299, in on_validat
+ion_epoch_end
+    valid_smiles = self.sampling_metrics(samples, all_ys, self.name, self.current_epoch, val_counter=-1, te
+st=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/miniconda3/envs/h100env/lib/python3.11/site-packages/torch/nn/modules/module.py",
+ line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/metrics/molecular_metrics_sampling.py", line
+ 84, in forward
+    unique_smiles, all_smiles, all_metrics, targets_log = compute_molecular_metrics(
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 353, in c
+ompute_molecular_metrics
+    evaluated_res = metrics.evaluate(molecule_list, targets, ensure_connected, active_atoms)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/m2_4tdata/xchen5/Physics-informed-Graph-DiT/graph_dit/analysis/rdkit_functions.py", line 150, in e
+valuate
+    targets_log[f'input_{name}'] = targets[:, i]
+                                   ~~~~~~~^^^^^^
+IndexError: index 2 is out of bounds for axis 1 with size 2
+------------------------------------------------
+GraphDiT Job Finished: Fri Aug  1 11:24:05 PM PDT 2025
+------------------------------------------------
+(h100env) $ tmux capture-pane -t mysession:0.0 -pS -500
+can't find session: mysession
+(h100env) $ tmux capture-pane -pS -500 > last_500_lines.txt
+
